@@ -1,0 +1,38 @@
+{
+  "name": "openapi-linter-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/server.js",
+  "scripts": {
+    "dev": "nodemon src/index.ts",
+    "build": "npm run build:tsc && npm run build:esbuild",
+    "build:tsc": "tsc --build ./tsconfig.build.json",
+    "build:esbuild": "esbuild --bundle --platform=node --format=cjs --main-fields=module,main --outfile=build/server.js --tsconfig=./tsconfig.build.json --external:./node_modules/* --sourcemap --minify ./src/server.ts",
+    "watch:tsc": "tsc --build ./tsconfig.build.json -w --preserveWatchOutput",
+    "watch:esbuild": "esbuild --bundle --platform=node --format=cjs --main-fields=module,main --outfile=build/server.js --tsconfig=./tsconfig.build.json --external:./node_modules/* --sourcemap --watch ./src/server.ts",
+    "test": "jest --cacheDirectory=./.cache/.jest",
+    "start": "node ./dist/server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/js-yaml": "^4.0.5",
+    "@types/node": "^17.0.35",
+    "@typescript-eslint/eslint-plugin": "^5.25.0",
+    "@typescript-eslint/parser": "^5.25.0",
+    "esbuild": "^0.14.39",
+    "nodemon": "^2.0.16",
+    "ts-node": "^10.7.0",
+    "typescript": "^4.6.4"
+  },
+  "dependencies": {
+    "@stoplight/spectral-cli": "^6.4.0",
+    "@stoplight/spectral-core": "^1.12.2",
+    "@stoplight/spectral-parsers": "^1.0.1",
+    "@stoplight/spectral-runtime": "^1.1.2",
+    "content-type-parser": "^1.0.2",
+    "fastify": "^3.29.0",
+    "js-yaml": "^4.1.0"
+  }
+}
