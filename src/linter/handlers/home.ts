@@ -1,51 +1,51 @@
-import { buildProblemResponse, buildProblemType } from "../problems";
-import { Request, Response } from "../types";
+import { buildProblemResponse, buildProblemType } from '../problems';
+import { Request, Response } from '../types';
 
 export async function handler(event: Request): Promise<Response> {
-  if (event.method === "OPTIONS") {
+  if (event.method === 'OPTIONS') {
     return {
       statusCode: 204,
       headers: {
-        "Access-Control-Allow-Origin": "*",
-        "Access-Control-Allow-Methods": "GET, OPTIONS",
-        "Access-Control-Max-Age": "86400",
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Methods': 'GET, OPTIONS',
+        'Access-Control-Max-Age': '86400',
       },
-      body: "",
+      body: '',
     };
   }
 
-  if (event.method !== "GET") {
+  if (event.method !== 'GET') {
     return buildProblemResponse({
       status: 405,
-      type: buildProblemType("unsupported-method"),
-      title: "Unsupported method",
+      type: buildProblemType('unsupported-method'),
+      title: 'Unsupported method',
       detail:
-        "This operation only supports the following methods: GET, OPTIONS",
+        'This operation only supports the following methods: GET, OPTIONS',
     });
   }
 
   return {
     statusCode: 200,
     headers: {
-      "Access-Control-Allow-Origin": "*",
-      "Content-Type": "application/home+json",
+      'Access-Control-Allow-Origin': '*',
+      'Content-Type': 'application/home+json',
     },
     body: JSON.stringify({
       api: {
-        title: "API Spec Linter",
+        title: 'API Spec Linter',
       },
       resources: {
-        "tag:linting.org,2022:linter": {
-          hrefTemplate: "/linter{?rulesUrl}",
+        'tag:linting.org,2022:linter': {
+          hrefTemplate: '/linter{?rulesUrl}',
           hrefVars: {
-            rulesUrl: "tag:linting.org,2022:linter/url#rulesUrl",
+            rulesUrl: 'tag:linting.org,2022:linter/url#rulesUrl',
           },
           hints: {
-            allow: ["POST"],
+            allow: ['POST'],
             formats: {
-              "application/json": {},
+              'application/json': {},
             },
-            acceptPost: ["application/json", "text/yaml"],
+            acceptPost: ['application/json', 'text/yaml'],
           },
         },
       },
