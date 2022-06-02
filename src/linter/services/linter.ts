@@ -17,11 +17,13 @@ import { fetch } from "@stoplight/spectral-runtime";
 
 import * as errors from "./errors";
 
+const defaultRules = "https://raw.githubusercontent.com/jbend/tdp-spectral-rules/main/rulesets/trimble-default.json";
+
 type Definition = object;
 
 export async function linter(
   body: string,
-  rulesUrl: string | undefined = "https://rules.linting.org/testing/base.yaml"
+  rulesUrl: string | undefined = defaultRules // "https://rules.linting.org/testing/base.yaml"
 ): Promise<IRuleResult[]> {
   const definitions: Array<Definition> = [];
   try {
@@ -47,6 +49,7 @@ export async function linter(
     "cjs",
     ".ts",
   ];
+  console.log("RulesUrl", rulesUrl);
   if (!supportedFileExtensions.find((ext) => rulesUrl.endsWith(ext))) {
     // Should work for both JSON and YAML.
     // If it's actually JavaScript or TypeScript, ope.
