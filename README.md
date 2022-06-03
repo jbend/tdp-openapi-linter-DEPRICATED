@@ -1,6 +1,6 @@
 # TDP Open API Linting Server
 
-[![Node.js CI](https://github.com/jbend/tdp-openapi-linter/actions/workflows/node.js.yml/badge.svg)](https://github.com/jbend/tdp-openapi-linter/actions/workflows/node.js.yml)
+[![Build](https://github.com/jbend/tdp-openapi-linter/actions/workflows/node.js.yml/badge.svg)](https://github.com/jbend/tdp-openapi-linter/actions/workflows/node.js.yml)
 
 [![Test](https://github.com/jbend/tdp-openapi-linter/actions/workflows/integrate.yml/badge.svg?branch=main)](https://github.com/jbend/tdp-openapi-linter/actions/workflows/integrate.yml)
 
