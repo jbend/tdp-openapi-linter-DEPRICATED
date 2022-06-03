@@ -48,7 +48,7 @@ jobs:
       - name: Download artifact from build job
         uses: actions/download-artifact@v3
         with:
-          name: node-app
+          name: tdp-linter-test
 
       - name: Deploy to Azure WebApp
         id: deploy-to-webapp
