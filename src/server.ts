@@ -4,7 +4,7 @@ import build from './app';
 dotenv.config();
 const port = process.env.PORT;
 
-export const server = build({
+const server = build({
   logger: {
     level: 'info',
     prettyPrint: true,
