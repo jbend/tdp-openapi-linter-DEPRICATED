@@ -1,6 +1,6 @@
-name: Integration
+name: Deploy
 
-on: [pull_request]
+on: [push]
 
 jobs:
   test_pull_request:
